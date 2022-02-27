@@ -82,6 +82,10 @@ fn handleKey(listener: *wl.Listener(*wlr.Keyboard.event.Key), event: *wlr.Keyboa
 
     self.seat.clearRepeatingMapping();
 
+    if (server.config.cursor_hide_when_typing == .enabled) {
+        self.seat.cursor.hide();
+    }
+
     // Translate libinput keycode -> xkbcommon
     const keycode = event.keycode + 8;
 

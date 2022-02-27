@@ -267,6 +267,24 @@ A complete list may be found in _/usr/include/linux/input-event-codes.h_
 	If the view to be focused is on an output that does not have focus,
 	focus is switched to that output.
 
+*hide-cursor* *timeout* _timeout_
+	Hide the cursor if it wasn't moved in the last _timeout_ milliseconds, until
+	it is moved again.
+	The default value is 0, which disables automatically hiding the cursor.
+
+*hide-cursor* *jitter* _hide_delta_ _unhide_delta_
+	- _hide_delta_: How many logical pixels the cursor has to move to reset the
+	  hide timeout.
+	- _unhide_delta_: How many logical pixels the cursor has to move to show the
+	  cursor again.
+	The default value is for both is 0, which disables the jitter.
+
+*hide-cursor* *jitter* _delta_
+	Sets both *hide-cursor* *jitter* _hide_delta_ and _unhide_delta_ to _delta_.
+
+*hide-cursor* *when-typing* *enabled*|*disabled*
+	Hide the cursor when typing starts, the cursor has to move to be shown again.
+
 *set-cursor-warp* *disabled*|*on-output-change*
 	Set the cursor warp mode. There are two available modes:
 
